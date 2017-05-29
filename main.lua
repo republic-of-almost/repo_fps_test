@@ -1,19 +1,26 @@
+--[[
 
+  Config
+  --
+  Simple test setup.
 
-wired.conf = {
+]]--
 
-  engine   = 0,
+repo.conf = {
+
+  engine_version = Version.Init,
 
   info = {
-    title    = "Simple Test",
-    author   = "Basic",
-    desc     = "Description",
-    link     = "http://google.co.uk",
+    title  = "Simple Test",
+    author = "Basic",
+    desc   = "Test for Repo Engine",
+    link   = "www.repoengine.com",
   },
 
   entities = {
     "actor",
     "ground",
     "debug",
+    "environment",
   },
 }

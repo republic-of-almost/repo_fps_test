@@ -11,7 +11,7 @@ debug = {}
 --
 
 function
-wired.on_start(entity)
+repo.on_start(entity)
 
   entity.name = "Debug"
 
@@ -23,7 +23,7 @@ end
 --
 
 function
-wired.on_update(entity)
+repo.on_update(entity)
 
   if(debug.kb:is_key_up_on_frame(Key.F2)) then
     debug.ms.capture = not debug.ms.capture

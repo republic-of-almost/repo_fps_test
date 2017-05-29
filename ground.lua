@@ -6,10 +6,8 @@
 
 ]]--
 
-
--- Setup the entity when it gets created.
 function
-wired.on_start(entity)
+repo.on_start(entity)
 
   -- General --
 
@@ -24,5 +22,11 @@ wired.on_start(entity)
 
   entity.material.color = Color.new(1.0, 0.0, 0.0, 1.0)
   entity.material.shader_type = ShaderType.SimpleLight
+
+end
+
+
+function
+repo.on_update(entity)
 
 end

@@ -11,7 +11,7 @@ actor = {}
 --
 
 function
-wired.on_start(entity)
+repo.on_start(entity)
 
   -- Setup Actor --
 
@@ -89,7 +89,7 @@ end
 --
 
 function
-wired.on_update(entity)
+repo.on_update(entity)
 
   -- General Things --
 
