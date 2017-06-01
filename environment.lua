@@ -18,7 +18,7 @@ repo.on_start(entity)
 
   entity.name = "Environment"
 
-  for i = 0, env.count do
+  for i = 1, env.count do
 
     -- Add Child --
 
@@ -43,34 +43,56 @@ repo.on_update(entity)
 
   env.time = env.time + (delta_time * 0.01)
 
-  for i = 0, env.count do
+  -- Helps with Lua Performance  --
+
+  local pos   = Vector3.new(0,0,0)
+  local scale = Vector3.new(1,1,1)
+  local color = Color.new(1,1,1,1)
+
+  local cos = Math.cos
+  local sin = Math.sin
+  local clamp = Math.clamp
+  local floor = Math.floor
+
+  for i = 1, env.count do
 
     local radius = 15
     local time = i
     local half_root_two = Math.RootTwo * 0.5
 
-    local x = Math.cos(time + env.time)
-    local z = Math.sin(time + env.time)
+    local x = cos(time + env.time)
+    local z = sin(time + env.time)
+    local y = 0.0
 
-    y = Math.floor(i / 20)
-    x = Math.clamp(x, -half_root_two, half_root_two) * (radius + y)
-    z = Math.clamp(z, -half_root_two, half_root_two) * (radius + y)
+    y = floor(i / 20)
+    x = clamp(x, -half_root_two, half_root_two) * (radius + y)
+    z = clamp(z, -half_root_two, half_root_two) * (radius + y)
 
     -- Get Child --
 
-    local ent = entity:get_child(i)
+    local ent = entity:get_child(i - 1)
 
     -- Material --
 
-    ent.material.color = Color.new(1.0, y / 10.0, 1.0, 1.0)
+    color.green = y / 10.0
+
+    ent.material.color = color
 
     -- Transform --
 
-    local scale = 2.0
-    local scale_up = scale * (i / 10)
+    local default_scale = 2.0
+    local scale_up = default_scale * (i / 10)
 
-    ent.transform.position = Vector3.new(x, y ,z)
-    ent.transform.scale    = Vector3.new(scale, scale_up, scale)
+    pos.x = x;
+    pos.y = y;
+    pos.z = z;
+
+    scale.x = default_scale
+    scale.y = scale_up
+    scale.z = default_scale
+
+    ent.transform.position = pos
+    ent.transform.scale    = scale
 
   end
 

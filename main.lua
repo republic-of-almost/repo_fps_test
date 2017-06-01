@@ -12,7 +12,7 @@ repo.conf = {
 
   info = {
     title  = "Simple Test",
-    author = "Basic",
+    author = "",
     desc   = "Test for Repo Engine",
     link   = "www.repoengine.com",
   },
