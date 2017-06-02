@@ -12,7 +12,7 @@ repo.conf = {
 
   info = {
     title  = "Simple Test",
-    author = "",
+    author = "PhilCK",
     desc   = "Test for Repo Engine",
     link   = "www.repoengine.com",
   },
@@ -24,3 +24,35 @@ repo.conf = {
     "environment",
   },
 }
+
+-- --[[
+--
+--   Settings
+--   --
+--   This table is inserted into every script.
+--
+-- ]]--
+-- repo.settings = {
+--
+-- }
+--
+--
+-- --[[
+--
+--   Assets
+--   --
+--   Loads assets on startup.
+--
+-- ]]--
+-- repo.assets = {
+--
+--   audio_samples = {
+--     "a_walk" = "audio/walk.wav",
+--     -- "a_sky"  = "audio/sky.wav",
+--   }
+--
+--   models = {
+--     -- "m_box" = "mesh/box.obj",
+--   }
+--
+-- }

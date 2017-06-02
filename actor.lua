@@ -45,6 +45,7 @@ repo.on_start(entity)
   -- General --
 
   entity.name = "Actor"
+  entity.transform.scale = Vector3.new(0.5, 0.5, 0.5)
 
   -- Child Entities --
   -- Head --
@@ -57,9 +58,7 @@ repo.on_start(entity)
 
   -- Head Transform --
 
-  head.transform.scale = Vector3.new(0.5, 0.5, 0.5)
-
-  local head_pos = Vector3.new(0, Math.GoldenRatio, 0)
+  local head_pos = Vector3.new(0, 1 + Math.GoldenRatio, 0)
   head.transform.position = head_pos
 
   -- Head Material --
@@ -75,12 +74,13 @@ repo.on_start(entity)
 
   -- Body Transform --
 
-  body.transform.scale = Vector3.new(0.5, 0.5 * Math.GoldenRatio, 0.5)
+  body.transform.scale = Vector3.new(1, Math.GoldenRatio, 1)
 
   -- Body Material --
+  -- Debugging - Uncomment to see the body --
 
-  body.material.color = Color.new(1.0, 0.0, 1.0, 1.0)
-  body.material.shader_type = ShaderType.SimpleLight
+  -- body.material.color = Color.new(1.0, 0.0, 1.0, 1.0)
+  -- body.material.shader_type = ShaderType.SimpleLight
 
   -- Camera --
 
@@ -104,8 +104,7 @@ repo.on_start(entity)
   camera_data.clear_color_buffer = true
   cam.camera = camera_data
 
-
-  -- Inital Ray Test To Get Height --
+  -- Inital Ray Test To Correct Start Height --
 
   local ray_dir    = Vector3.new(0.0, -1.0, 0.0)
   local ray        = Ray.new(entity.transform.position, ray_dir)

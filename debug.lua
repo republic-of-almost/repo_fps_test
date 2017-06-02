@@ -18,6 +18,10 @@ repo.on_start(entity)
   debug.kb = Keyboard.new()
   debug.ms = Mouse.new()
 
+  -- Initial Capture --
+
+  debug.ms.capture = true
+
 end
 
 --
